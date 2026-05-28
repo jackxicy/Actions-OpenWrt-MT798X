@@ -4,7 +4,8 @@ env:
   DEVICE_NAME: x86_64
   REPO_URL: https://openwrt/openwrt
   # REPO_URL: https://immortalwrt/immortalwrt
-  REPO_BRANCH: openwrt-25.12
+  # REPO_BRANCH: openwrt-25.12
+  REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: x86_64/x86_64.config
   DIY_P1_SH: x86_64/diy-part1.sh

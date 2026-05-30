@@ -87,9 +87,6 @@ else
   fi
 fi
 
-# 更新 lucky
-rm -rf feeds/packages/net/lucky
-
 # lede vlmcsd 默认编译并且失败
 rm -rf feeds/packages/net/vlmcsd
 rm -rf package/feeds/luci/luci-app-vlmcsd
@@ -98,8 +95,6 @@ sed -i '/CONFIG_PACKAGE_vlmcsd/d' .config
 sed -i '/CONFIG_PACKAGE_luci-app-vlmcsd/d' .config
 echo '# CONFIG_PACKAGE_vlmcsd is not set' >> .config
 echo '# CONFIG_PACKAGE_luci-app-vlmcsd is not set' >> .config
-
-echo "✅ 网络优化参数已写入"
 
 # 修改默认 IP (192.168.30.1)
 sed -i 's/192.168.1.1/192.168.30.1/g' package/base-files/files/bin/config_generate

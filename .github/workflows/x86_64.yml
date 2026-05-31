@@ -101,23 +101,23 @@ jobs:
         ln -sf /workdir/openwrt "$GITHUB_WORKSPACE/openwrt"
 
     # =========================================================
-    # 3. 加载自定义 Feeds
-    # =========================================================
-    - name: Load custom feeds (diy-part1.sh)
-      run: |
-        [ -e "$FEEDS_CONF" ] && cp "$FEEDS_CONF" openwrt/feeds.conf.default
-        chmod +x "$DIY_P1_SH"
-        cd openwrt
-        "$GITHUB_WORKSPACE/$DIY_P1_SH"
-
-    # =========================================================
-    # 4. 更新并安装 Feeds
+    # 3. 更新并安装 Feeds
     # =========================================================
     - name: Update & install feeds
       run: |
+        [ -e "$FEEDS_CONF" ] && cp "$FEEDS_CONF" openwrt/feeds.conf.default
         cd openwrt
         ./scripts/feeds update -a
         ./scripts/feeds install -a
+
+    # =========================================================
+    # 4. 加载自定义 Feeds
+    # =========================================================
+    - name: Load custom feeds (diy-part1.sh)
+      run: |
+        chmod +x "$DIY_P1_SH"
+        cd openwrt
+        "$GITHUB_WORKSPACE/$DIY_P1_SH"
 
     # =========================================================
     # 5. 加载自定义配置 (diy-part2.sh)

@@ -94,3 +94,8 @@ git clone --depth=1 https://github.com/eamonxg/luci-app-aurora-config.git packag
 
 git clone --depth=1 https://github.com/sirpdboy/luci-theme-kucat.git package/custom/luci-theme-kucat
 git clone --depth=1 https://github.com/sirpdboy/luci-app-kucat-config.git package/custom/luci-app-kucat-config
+
+# 追加chasey-dev配套mtk闭源WO驱动feed
+echo "src-git mtk https://github.com/chasey-dev/mtk-openwrt-feeds.git" >> feeds.conf.default
+# 去重，防止多次重复写入
+sort -u feeds.conf.default -o feeds.conf.default

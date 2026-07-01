@@ -117,6 +117,7 @@ jobs:
     - name: Update & install feeds
       run: |
         cd openwrt
+        rm -rf feeds/* tmp/
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 
